@@ -1,0 +1,33 @@
+.gallery-item img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.gallery-layout {
+  --gap: 5px;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  grid-gap: var(--gap);
+}
+.gallery-layout .gallery-item {
+  margin-bottom: var(--gap);
+}
+.gallery-layout.columns-1 {
+  --columns: 1;
+}
+.gallery-layout.columns-2 {
+  --columns: 2;
+}
+.gallery-layout.columns-3 {
+  --columns: 3;
+}
+.gallery-layout.columns-4 {
+  --columns: 4;
+}
+.gallery-layout.columns-5 {
+  --columns: 5;
+}
+.gallery-layout.columns-6 {
+  --columns: 6;
+}
