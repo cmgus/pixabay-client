@@ -1,3 +1,7 @@
+body {
+  background-color: snow;
+  min-height: 100vh;
+}
 .gallery-item img {
   max-width: 100%;
   display: block;
@@ -5,7 +9,7 @@
 }
 
 .gallery-layout {
-  --gap: 5px;
+  --gap: 7px;
   display: grid;
   grid-template-columns: repeat(var(--columns), 1fr);
   grid-gap: var(--gap);

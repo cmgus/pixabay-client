@@ -5,7 +5,7 @@ const Header = (props) => {
     <Hero color="black">
       <Hero.Body>
         <Container textAlign="centered">
-          <Title>Ola ke ase</Title>
+          <Title>Search your photo</Title>
           {props.children}
         </Container>
       </Hero.Body>

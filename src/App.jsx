@@ -6,10 +6,10 @@ import SearchBar from './components/SearchBar';
 import Gallery from './containers/Gallery';
 
 class App extends Component {
-  state = { 
+  state = {
     term: '',
     hits: []
-   }
+  }
   setTerm = (ev) => {
     this.setState({ term: ev.target.value })
   }
@@ -18,7 +18,7 @@ class App extends Component {
     console.log(`https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_KEY}&q=${this.state.term}&image_type=photo`)
     const data = await response.json()
     console.log(data)
-    this.setState({ hits: data.hits })
+    this.setState({ hits: data.hits, submitted: true })
   }
   render() {
     return (
