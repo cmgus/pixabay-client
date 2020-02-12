@@ -7,26 +7,21 @@ import Gallery from './containers/Gallery';
 
 class App extends Component {
   state = {
-    term: '',
-    hits: []
+    term: null
   }
-  setTerm = (ev) => {
-    this.setState({ term: ev.target.value })
+
+  handleSubmit = (ev) => {
+    ev.preventDefault()
+    this.setState({ term: new FormData(ev.target).get('term') })
   }
-  fetchAPI = async () => {
-    const response = await fetch(`https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_KEY}&q=${this.state.term}&image_type=photo`)
-    console.log(`https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_KEY}&q=${this.state.term}&image_type=photo`)
-    const data = await response.json()
-    console.log(data)
-    this.setState({ hits: data.hits, submitted: true })
-  }
+
   render() {
     return (
       <div>
         <Header>
-          <SearchBar fetchAPI={this.fetchAPI} setTerm={this.setTerm} />
+          <SearchBar handleSubmit={this.handleSubmit} />
         </Header>
-        <Gallery hits={this.state.hits} renderColumn={false} />
+        <Gallery term={this.state.term} />
       </div>
     );
   }

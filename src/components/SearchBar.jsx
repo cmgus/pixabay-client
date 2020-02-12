@@ -3,20 +3,13 @@ import { Level, Field, Control, Input, Button } from "rbx"
 
 const SearchBar = (props) => {
 
-  let valueTerm = React.createRef()
-  const handleSubmit = (ev) => {
-    ev.preventDefault()
-    //console.log('On submitted')
-    props.fetchAPI()
-    valueTerm.current.value = ""
-  }
   return (
     <Level>
       <Level.Item>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={props.handleSubmit}>
           <Field kind="addons">
             <Control>
-              <Input type="search" onChange={props.setTerm} ref={valueTerm} placeholder="Girl" rounded />
+              <Input name="term" type="search" placeholder="Girl" rounded />
             </Control>
             <Control>
               <Button type="submit" color="link" rounded>Search</Button>
